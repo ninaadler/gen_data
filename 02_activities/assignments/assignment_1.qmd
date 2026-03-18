@@ -1,6 +1,8 @@
 ---
 title: "Assignment #1"
-format: html
+format:
+  html:
+    embed-resources: true
 ---
 
 ## Assignment 1
