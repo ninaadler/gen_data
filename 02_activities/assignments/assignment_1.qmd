@@ -135,6 +135,7 @@ rs1861: 0.274719
 ```{r}         
 # Load genotype data
 geno_subset = fread("./02_activities/data/geno.additive_A1.raw")
+geno_subset = geno_subset %>% select(-rs3813199_G, -rs11804831_T, -rs3128342_C)
 geno_subset = na.omit(geno_subset)
 head(geno_subset)
 
@@ -147,11 +148,11 @@ coef(summary(model_add))
 ```
 p <2e-16
 
-p = 3.823844e-79
+p = 1.617409e-82
 
 (ii) How would you interpret the beta coefficient from this regression?
 
-The regression coefficient for rs1861 under the addititve model is 0.967 (p = 3.82e-79). The positive coefficient means that each additional copy of the C allele is associated with an increased chance of having the phenotype. The low p-value means that this association is statistically significant.
+The regression coefficient for rs1861 under the addititve model is 0.974 (p = 1.62e-82). The positive coefficient means that each additional copy of the C allele is associated with an increased chance of having the phenotype. The low p-value means that this association is statistically significant.
 
 
 (iii) Plot the scatterplot of phenotype versus the genotype of SNP rs1861. Add the regression line to the plot.
@@ -185,7 +186,7 @@ coef(summary(model_rec))
 ```
 p < 2.2e-16
 
-p = 1.530447e-76
+p = 2.729188e-79
 
 (vi) Plot the scatterplot of phenotype versus the recessive-coded genotype of rs1861. Add the regression line to the plot.
 
@@ -205,7 +206,7 @@ AIC(model_add)
 AIC(model_rec)
 ```
 
-The AIC for the additive model is 10988.06 and the AIC for the recessive model is 11000.02. While these values are very similar, the AIC for the additive model is slightly lower meaning that it has a slightly better fit.
+The AIC for the additive model is 11276.91 and the AIC for the recessive model is 11291.74. While these values are very similar, the AIC for the additive model is slightly lower meaning that it has a slightly better fit.
 
 
 
